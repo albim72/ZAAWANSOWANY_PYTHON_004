@@ -10,7 +10,7 @@ class Grade:
             raise ValueError('Ocena musi zawierać się w przedziale 0-100')
         self._value = value
         
-class Exam:
+class ExamD:
     math_grade = Grade()
     writing_grade = Grade()
     science_grade = Grade()
