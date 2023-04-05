@@ -42,3 +42,34 @@ print(osoba(konkurs,"Ala",55))
 print(osoba(kierowca,"Tomek",6))
 print(osoba(kierowca,"Jan",7,False))
 print(osoba(kierowca,"Tomek",6,kraj="GB"))
+
+#przykład 3
+
+def startstop(funkcja):
+    def wrapper(*args):
+        print("_"*20)
+        print("startowanie procesu...")
+        g = funkcja(*args)
+        print(f"wynik 6*f(x) = {6*g}")
+        print("kończenie procesu...")
+        print("_"*20)
+        return g
+    return wrapper
+
+def zawijanie(czego):
+    print(f'zawijanie {czego} w sreberka')
+
+# zw = startstop(zawijanie)
+# zw("czekoladek")
+
+@startstop
+def dmuchanie(czego):
+    print(f"dmuchanie {czego} w urodziny")
+
+#dmuchanie("świeczek")
+
+@startstop
+def fx(a,b):
+    return a+2*b
+
+fx(5,9)
