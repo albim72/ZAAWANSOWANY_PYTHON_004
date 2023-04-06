@@ -7,8 +7,13 @@ class MultiBases(type):
 class Base(metaclass=MultiBases):
     pass
 
-class A(Base):
+
+class Extra:
     pass
+
+class A(Base,Extra):
+    def __new__(cls, *args, **kwargs):
+        return object.__new__(A)
 
 class B(Base):
     pass
